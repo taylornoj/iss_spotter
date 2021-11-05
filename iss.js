@@ -67,9 +67,9 @@ const request = require('request');
  *   - The fly over times as an array of objects (null if error). Example:
  *     [ { risetime: 134564234, duration: 600 }, ... ]
  */
- const fetchISSFlyOverTimes = function(coords, callback) {
+const fetchISSFlyOverTimes = function(coords, callback) {
   const url = (`https://iss-pass.herokuapp.com/json/?lat=${coords.latitude}&lon=${coords.longitude}`);
-   request(url, (error, response, body) => {
+  request(url, (error, response, body) => {
     if (error) {
       callback(error, null);
       return;
@@ -81,7 +81,7 @@ const request = require('request');
     }
     const passes = JSON.parse(body).response;
     callback(null, passes);
-  })
+  });
 };
 
 
